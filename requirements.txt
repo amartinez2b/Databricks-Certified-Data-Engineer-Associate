@@ -1,1 +1,2 @@
 Faker>=37.11.0
+databricks-labs-dqx>0.9.0
