@@ -1,0 +1,79 @@
+ {
+  "name": "job_workshop",
+  "email_notifications": {
+    "no_alert_for_skipped_runs": false
+  },
+  "webhook_notifications": {},
+  "timeout_seconds": 0,
+  "max_concurrent_runs": 1,
+  "tasks": [
+    {
+      "task_key": "Raw_To_Bronze",
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/agustin.martinez@bigdataybi.com/Databricks-Certified-Data-Engineer-Associate/4- Production Pipelines/4.1 - JOBs Workshop/4.1.1 - Raw to Bronze",
+        "base_parameters": {
+          "bronze_catalog_name": "",
+          "bronze_schema_name": "",
+          "bronze_table_name": ""
+        },
+        "source": "WORKSPACE"
+      },
+      "timeout_seconds": 0,
+      "email_notifications": {},
+      "webhook_notifications": {}
+    },
+    {
+      "task_key": "Bronze_To_Silver",
+      "depends_on": [
+        {
+          "task_key": "Raw_To_Bronze"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/agustin.martinez@bigdataybi.com/Databricks-Certified-Data-Engineer-Associate/4- Production Pipelines/4.1 - JOBs Workshop/4.1.2 - Bronze to Silver",
+        "base_parameters": {
+          "bronze_catalog_name": "",
+          "bronze_schema_name": "",
+          "bronze_table_name": "",
+          "silver_catalog_name": "",
+          "silver_schema_name": "",
+          "silver_table_name": ""
+        },
+        "source": "WORKSPACE"
+      },
+      "timeout_seconds": 0,
+      "email_notifications": {},
+      "webhook_notifications": {}
+    },
+    {
+      "task_key": "Silver_To_Gold",
+      "depends_on": [
+        {
+          "task_key": "Bronze_To_Silver"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/Users/agustin.martinez@bigdataybi.com/Databricks-Certified-Data-Engineer-Associate/4- Production Pipelines/4.1 - JOBs Workshop/4.1.3 - Silver to Gold",
+        "base_parameters": {
+          "silver_catalog_name": "",
+          "silver_schema_name": "",
+          "silver_table_name": "",
+          "gold_catalog_name": "",
+          "gold_schema_name": "",
+          "gold_table_name": ""
+        },
+        "source": "WORKSPACE"
+      },
+      "timeout_seconds": 0,
+      "email_notifications": {},
+      "webhook_notifications": {}
+    }
+  ],
+  "queue": {
+    "enabled": true
+  },
+  "performance_target": "PERFORMANCE_OPTIMIZED"
+}
