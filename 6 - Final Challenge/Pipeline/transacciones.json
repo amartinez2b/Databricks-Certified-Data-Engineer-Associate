@@ -1,0 +1,34 @@
+[
+    {
+        "transID": "T1",
+        "clienteID": 1,
+        "fecha_compra": "2023-09-10",
+        "producto": "Pan",
+        "cantidad": 4,
+        "precio_unitario": 120
+    },
+    {
+        "transID": "T2",
+        "clienteID": 1,
+        "fecha_compra": "2024-01-15",
+        "producto": "Caf\u00e9",
+        "cantidad": 2,
+        "precio_unitario": 300
+    },
+    {
+        "transID": "T3",
+        "clienteID": 2,
+        "fecha_compra": "2024-06-20",
+        "producto": "Alfajor",
+        "cantidad": 5,
+        "precio_unitario": 150
+    },
+    {
+        "transID": "T4",
+        "clienteID": 3,
+        "fecha_compra": "2024-07-01",
+        "producto": "Jugo",
+        "cantidad": 3,
+        "precio_unitario": 200
+    }
+]
